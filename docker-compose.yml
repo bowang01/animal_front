@@ -9,3 +9,12 @@ services:
       - "host.docker.internal:host-gateway"
     environment:
       VUE_APP_BASE_API: /api
+    networks:
+      - proxy
+      - default
+
+networks:
+  proxy:
+    name: proxy
+    external: true
+
