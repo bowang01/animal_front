@@ -21,7 +21,7 @@
       >
         <el-button type="danger" slot="reference">Batch Delete <i class="el-icon-remove-outline"></i></el-button>
       </el-popconfirm>
-      <!-- <el-upload action="http://localhost:9090/feed/import" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">
+      <!-- <el-upload :action="$apiBase + '/feed/import'" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">
         <el-button type="primary" class="ml-5">Import <i class="el-icon-bottom"></i></el-button>
       </el-upload>
       <el-button type="primary" @click="exp" class="ml-5">Export <i class="el-icon-top"></i></el-button> -->
@@ -68,17 +68,17 @@
     <el-dialog title="Information" :visible.sync="dialogFormVisible" width="30%" :close-on-click-modal="false">
       <el-form label-width="100px" size="small" style="width: 90%">
         <el-form-item label="Environment Photo 1">
-          <el-upload action="http://localhost:9090/file/upload" ref="img" :on-success="handleImgUploadSuccess">
+          <el-upload :action="$apiBase + '/file/upload'" ref="img" :on-success="handleImgUploadSuccess">
             <el-button size="small" type="primary">Click to upload</el-button>
           </el-upload>
         </el-form-item>
         <el-form-item label="Environment Photo 2">
-          <el-upload action="http://localhost:9090/file/upload" ref="img" :on-success="handleImgUploadSuccess2">
+          <el-upload :action="$apiBase + '/file/upload'" ref="img" :on-success="handleImgUploadSuccess2">
             <el-button size="small" type="primary">Click to upload</el-button>
           </el-upload>
         </el-form-item>
         <el-form-item label="Environment Photo 3">
-          <el-upload action="http://localhost:9090/file/upload" ref="img" :on-success="handleImgUploadSuccess3">
+          <el-upload :action="$apiBase + '/file/upload'" ref="img" :on-success="handleImgUploadSuccess3">
             <el-button size="small" type="primary">Click to upload</el-button>
           </el-upload>
         </el-form-item>
@@ -230,7 +230,7 @@ export default {
       window.open(url)
     },
     exp() {
-      window.open("http://localhost:9090/feed/export")
+      window.open(this.$apiBase + "/feed/export")
     },
     handleExcelImportSuccess() {
       this.$message.success("Imported successfully")

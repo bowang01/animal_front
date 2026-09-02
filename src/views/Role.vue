@@ -21,7 +21,7 @@
       >
         <el-button type="danger" slot="reference">Batch Delete <i class="el-icon-remove-outline"></i></el-button>
       </el-popconfirm>
-<!--      <el-upload action="http://localhost:9090/user/import" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">-->
+<!--      <el-upload :action="$apiBase + '/user/import'" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">-->
 <!--        <el-button type="primary" class="ml-5">Import <i class="el-icon-bottom"></i></el-button>-->
 <!--      </el-upload>-->
 <!--      <el-button type="primary" @click="exp" class="ml-5">Export <i class="el-icon-top"></i></el-button>-->

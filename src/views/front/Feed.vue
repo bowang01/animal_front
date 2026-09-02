@@ -261,7 +261,7 @@ export default {
       dialogFormVisible: false,
       multipleSelection: [],
       user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : {},
-      uploadUrl: "http://localhost:9090/file/upload"
+      uploadUrl: (process.env.VUE_APP_BASE_API || "http://localhost:9090") + "/file/upload"
     }
   },
   created() {

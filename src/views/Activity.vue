@@ -21,7 +21,7 @@
       >
         <el-button type="danger" slot="reference">Batch Delete <i class="el-icon-remove-outline"></i></el-button>
       </el-popconfirm>
-      <!-- <el-upload action="http://localhost:9090/activity/import" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">
+      <!-- <el-upload :action="$apiBase + '/activity/import'" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">
         <el-button type="primary" class="ml-5">Import <i class="el-icon-bottom"></i></el-button>
       </el-upload>
       <el-button type="primary" @click="exp" class="ml-5">Export <i class="el-icon-top"></i></el-button> -->
@@ -78,7 +78,7 @@
         <el-form-item label="Cover">
           <el-upload
               class="avatar-uploader"
-              :action="'http://localhost:9090/file/upload'"
+              :action="$apiBase + '/file/upload'"
               :show-file-list="false"
               :on-success="handleImgUploadSuccess"
           >
@@ -159,7 +159,7 @@ export default {
       const formData = new FormData();
       formData.append('file', $file);
       axios({
-        url: 'http://localhost:9090/file/upload',
+        url: this.$apiBase + '/file/upload',
         method: 'post',
         data: formData,
         headers: {'Content-Type': 'multipart/form-data'},
@@ -268,7 +268,7 @@ export default {
       window.open(url)
     },
     exp() {
-      window.open("http://localhost:9090/activity/export")
+      window.open(this.$apiBase + "/activity/export")
     },
     handleExcelImportSuccess() {
       this.$message.success("Import successful")

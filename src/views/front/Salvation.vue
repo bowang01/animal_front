@@ -90,7 +90,7 @@
         <el-form-item label="On-site Photo" required>
           <div class="upload-container">
             <el-upload
-                action="http://localhost:9090/file/upload"
+                :action="$apiBase + '/file/upload'"
                 ref="img"
                 :on-success="handleImgUploadSuccess"
                 :show-file-list="false"
@@ -436,7 +436,7 @@ export default {
     },
 
     exp() {
-      window.open("http://localhost:9090/salvation/export")
+      window.open(this.$apiBase + "/salvation/export")
     },
 
     handleExcelImportSuccess() {

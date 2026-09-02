@@ -6,7 +6,7 @@
       <el-button type="warning" @click="reset">Reset</el-button>
     </div>
     <div style="margin: 10px 0">
-      <el-upload action="http://localhost:9090/file/upload" :show-file-list="false"
+      <el-upload :action="$apiBase + '/file/upload'" :show-file-list="false"
                  :on-success="handleFileUploadSuccess" style="display: inline-block">
         <el-button type="primary" class="ml-5">Upload file <i class="el-icon-top"></i></el-button>
       </el-upload>

@@ -322,7 +322,7 @@ export default {
       const formData = new FormData();
       formData.append('file', $file);
       axios({
-        url: 'http://localhost:9090/file/upload',
+        url: this.$apiBase + '/file/upload',
         method: 'post',
         data: formData,
         headers: {'Content-Type': 'multipart/form-data'},
@@ -459,7 +459,7 @@ export default {
     },
 
     exp() {
-      window.open("http://localhost:9090/article/export")
+      window.open(this.$apiBase + "/article/export")
     },
 
     handleExcelImportSuccess() {

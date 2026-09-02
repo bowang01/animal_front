@@ -133,7 +133,7 @@
         <el-form-item label="Photo" required>
           <el-upload
               class="avatar-uploader"
-              action="http://localhost:9090/file/upload"
+              :action="$apiBase + '/file/upload'"
               :show-file-list="false"
               :on-success="handleImgUploadSuccess"
               ref="img">

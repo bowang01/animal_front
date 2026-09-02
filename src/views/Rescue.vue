@@ -21,7 +21,7 @@
       >
         <el-button type="danger" slot="reference">Batch Delete <i class="el-icon-remove-outline"></i></el-button>
       </el-popconfirm>
-      <!-- <el-upload action="http://localhost:9090/rescue/import" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">
+      <!-- <el-upload :action="$apiBase + '/rescue/import'" :show-file-list="false" accept="xlsx" :on-success="handleExcelImportSuccess" style="display: inline-block">
         <el-button type="primary" class="ml-5">Import <i class="el-icon-bottom"></i></el-button>
       </el-upload>
       <el-button type="primary" @click="exp" class="ml-5">Export <i class="el-icon-top"></i></el-button> -->
@@ -75,7 +75,7 @@
           <el-input v-model="form.addres" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="Photo">
-          <el-upload action="http://localhost:9090/file/upload" ref="img" :on-success="handleImgUploadSuccess">
+          <el-upload :action="$apiBase + '/file/upload'" ref="img" :on-success="handleImgUploadSuccess">
             <el-button size="small" type="primary">Click to upload</el-button>
           </el-upload>
         </el-form-item>
@@ -218,7 +218,7 @@ export default {
       window.open(url)
     },
     exp() {
-      window.open("http://localhost:9090/rescue/export")
+      window.open(this.$apiBase + "/rescue/export")
     },
     handleExcelImportSuccess() {
       this.$message.success("Import successful")

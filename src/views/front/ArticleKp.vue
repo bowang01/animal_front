@@ -94,7 +94,7 @@
         <el-form-item label="Cover Image">
           <el-upload
               class="pet-uploader"
-              :action="'http://localhost:9090/file/upload'"
+              :action="$apiBase + '/file/upload'"
               :show-file-list="false"
               :on-success="handleImgUploadSuccess"
               accept="image/*">
@@ -178,7 +178,7 @@ export default {
       const formData = new FormData();
       formData.append('file', $file);
       axios({
-        url: 'http://localhost:9090/file/upload',
+        url: this.$apiBase + '/file/upload',
         method: 'post',
         data: formData,
         headers: {'Content-Type': 'multipart/form-data'},
@@ -293,7 +293,7 @@ export default {
       window.open(url)
     },
     exp() {
-      window.open("http://localhost:9090/articleKp/export")
+      window.open(this.$apiBase + "/articleKp/export")
     },
     handleExcelImportSuccess() {
       this.$message.success("Import successful")
