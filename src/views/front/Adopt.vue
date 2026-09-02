@@ -110,6 +110,7 @@
         :visible.sync="detailDialogVisible"
         width="50%"
         :close-on-click-modal="false"
+        append-to-body
         class="pet-detail-dialog">
       <div v-if="currentPet" class="pet-detail-content">
         <!-- Pet basic info -->
@@ -203,6 +204,7 @@
         :visible.sync="dialogFormVisible"
         width="45%"
         :close-on-click-modal="false"
+        append-to-body
         class="adopt-dialog">
       <el-form label-width="100px" size="medium" style="width: 100%;">
         <div class="dialog-form-grid">
@@ -628,9 +630,17 @@ export default {
 }
 
 /* Pet detail dialog styles */
-.pet-detail-dialog {
+.pet-detail-dialog >>> .el-dialog {
   border-radius: 12px;
   overflow: hidden;
+  margin-top: 8vh !important;
+  margin-bottom: 8vh;
+}
+
+.pet-detail-dialog >>> .el-dialog__body {
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pet-detail-dialog >>> .el-dialog__header {
@@ -816,9 +826,17 @@ export default {
 }
 
 /* Adoption application dialog styles */
-.adopt-dialog {
+.adopt-dialog >>> .el-dialog {
   border-radius: 12px;
   overflow: hidden;
+  margin-top: 8vh !important;
+  margin-bottom: 8vh;
+}
+
+.adopt-dialog >>> .el-dialog__body {
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .adopt-dialog >>> .el-dialog__header {
@@ -950,8 +968,8 @@ export default {
     grid-template-columns: 1fr;
   }
 
-  .adopt-dialog,
-  .pet-detail-dialog {
+  .adopt-dialog >>> .el-dialog,
+  .pet-detail-dialog >>> .el-dialog {
     width: 95% !important;
   }
 

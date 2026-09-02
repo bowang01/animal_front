@@ -310,23 +310,23 @@
             <div style="color: #aaa; font-size: 14px; line-height: 1.8">
               <div style="display: flex; align-items: center; margin-bottom: 10px">
                 <i class="el-icon-phone" style="margin-right: 10px; color: #ff6b6b"></i>
-                <span>Hotline: 400-123-4567</span>
+                <span>Hotline: 04 555 0123</span>
               </div>
               <div style="display: flex; align-items: center; margin-bottom: 10px">
                 <i class="el-icon-message" style="margin-right: 10px; color: #ff6b6b"></i>
-                <span>Email: support@petadoption.org</span>
+                <span>Email: support@petadoption.nz</span>
               </div>
               <div style="display: flex; align-items: center">
                 <i class="el-icon-location-information" style="margin-right: 10px; color: #ff6b6b"></i>
-                <span>Address: 123 Love Road, Chaoyang District, Beijing</span>
+                <span>Address: 150 Lambton Quay, Wellington 6011, New Zealand</span>
               </div>
             </div>
           </div>
         </div>
 
         <div style="border-top: 1px solid #444; padding-top: 20px; text-align: center; color: #888; font-size: 14px">
-          <div style="margin-bottom: 10px">©  Pet Adoption System. All rights reserved.</div>
-          <div>ICP No. 12345678 | Charity Organization</div>
+          <div style="margin-bottom: 10px">© Pet Adoption System. All rights reserved.</div>
+          <div>NZBN 9429041234567 | Registered Charity CC51234</div>
         </div>
       </div>
     </div>
