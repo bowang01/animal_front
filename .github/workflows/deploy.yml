@@ -1,4 +1,4 @@
-name: Deploy frontend to Hostinger VPS
+name: Deploy frontend to Hostinger Docker Manager
 
 on:
   push:
@@ -10,39 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Deploy to Hostinger
+        uses: hostinger/deploy-on-vps@v2
         with:
-          node-version: 16
-          cache: npm
-
-      - name: Install and build
-        run: |
-          npm ci || npm install
-          npm run build
-        env:
-          VUE_APP_BASE_API: /api
-
-      - name: Prepare remote directory
-        uses: appleboy/ssh-action@v1.2.2
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            mkdir -p /opt/animal/front
-            chown -R www-data:www-data /opt/animal/front || true
-
-      - name: Upload dist
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: dist/
-          target: /opt/animal/front
-          strip_components: 1
-          overwrite: true
-          rm: true
+          api-key: ${{ secrets.HOSTINGER_API_KEY }}
+          virtual-machine: ${{ vars.HOSTINGER_VM_ID }}
+          project-name: animal-front
+          docker-compose-path: docker-compose.yml
+          environment-variables: |
+            VUE_APP_BASE_API=/api
